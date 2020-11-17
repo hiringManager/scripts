@@ -1,8 +1,9 @@
 #!/bin/bash
 
-sudo apt install jhead
+### Based on: https://unix.stackexchange.com/questions/294341/shell-script-to-separate-and-move-landscape-and-portrait-images
 
-# Based on: https://unix.stackexchange.com/questions/294341/shell-script-to-separate-and-move-landscape-and-portrait-images
+#Dependencies
+sudo apt install jhead
 
 # make directories
 mkdir portraits
