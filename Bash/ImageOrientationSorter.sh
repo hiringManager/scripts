@@ -1,6 +1,11 @@
 #!/bin/bash
 
-### Based on: https://unix.stackexchange.com/questions/294341/shell-script-to-separate-and-move-landscape-and-portrait-images
+######### 
+
+#Based on: https://unix.stackexchange.com/questions/294341/shell-script-to-separate-and-move-landscape-and-portrait-images
+#I recommend using Krename to sort them after this process
+
+#########
 
 #Dependencies
 sudo apt install jhead
