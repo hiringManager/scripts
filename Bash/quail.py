@@ -7,8 +7,8 @@
 
 import os 
 #Directory. How do I say "any user"
-os.chdir("/home/daria/Documents/")
-f = open('./.zshrc', 'a')
+os.chdir("/home/daria/")
+f = open('.zshrc', 'a')
 
 print("Shortened name/alias _____=")
 A_Name = input(" ")
