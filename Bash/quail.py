@@ -6,17 +6,21 @@
 
 
 import os 
-#Directory. How do I say "any user"
+
+#Edit to your dir and point it to your .bashrc / bashrc custon / zsh / etc.
 os.chdir("/home/daria/")
 f = open('.zshrc', 'a')
 
 print("Shortened name/alias _____=")
 A_Name = input(" ")
 
+
+#### Line removal with input
 #if input(prompt="-r"):
  #   count = len(open(f).readlines())
   #  f.strip
 #count.strip max(count)
+####
 
 print("And the definition? alias NotThis=________")
 A_Function = input()
@@ -29,3 +33,7 @@ f.write ("=")
 f.write("\"")
 f.write(A_Function)
 f.write("\"")
+
+#Do I have to fucking append all this shit to print it?
+
+print("done!")
