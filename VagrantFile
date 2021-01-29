@@ -1,0 +1,34 @@
+sudo apt install vagrant openssh-server virtualbox
+
+vagrant plugin install vagrant-vbguest
+vagrant box add hashicorp/bionic64
+
+echo > ~/Vagrantfile > 
+
+
+ # Base Box
+
+Vagrant.configure("2") do |config|
+  config.vm.define "master" do |subconfig|
+    subconfig.vm.box = "hashicorp/bionic64
+  end
+ 
+  config.vm.define "box1" do |subconfig|
+    subconfig.vm.box ="hashicorp/bionic64"
+  end
+  
+  config.vm.define "box2" do |subconfig|
+    subconfig.vm.box ="hashicorp/bionic64"
+  end
+  
+  config.vm.define "box3" do |subconfig|
+    subconfig.vm.box ="hashicorp/bionic64"
+  end
+  
+  # Virtualbox
+  
+  config.vm.provider "virtualbox" do |vb|
+    vb.memory = "512"
+  config.vm.network "forwarded_port", guest:80, host: 8080, host_ip "127.0.0.1"
+
+end
