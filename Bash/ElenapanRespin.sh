@@ -1,3 +1,7 @@
+FIND SWAP FILE ON OLD INSTALL
+
+
+
 #!/bin/bash
 
 #This is a script to easily install a nice config for Awesome WM, that is feature-rich and pretty UwU
