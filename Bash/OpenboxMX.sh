@@ -56,3 +56,7 @@ while true; do
 done
 
 sudo vim ~/.config/openbox/autostart #replace picom with compton
+
+
+
+# IF YOU RUN INTO ISSUES EDIT RHE XML IN DOTFILES/OPENBOX menu.xml
