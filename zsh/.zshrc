@@ -41,7 +41,7 @@ ZSH_THEME="garyblessington"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -76,7 +76,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# export MANPATH="/usr/local/man:$MANPATH"
+export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -122,8 +122,7 @@ autoload -Uz url-quote-magic
 zle -N self-insert url-quote-magic
 
 # Import colorscheme from wal
-#(~/.local/bin/wal -qR &)
-
+# (~/.local/bin/wal -qR &)
 
 # Find new executables in path
 zstyle ':completion:*' rehash true
@@ -134,7 +133,7 @@ zstyle ':completion:*' rehash true
 
 #export PATH="/home/daria/Applications/Appimage:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
-#export PATH="/home/daria/.local/share/flatpak/exports/bin:$PATH"
+export PATH="$HOME/.local/share/flatpak/exports/bin:$PATH"
 
 ###ALIASES
 
