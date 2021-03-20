@@ -1,3 +1,12 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+
+# Powerlevel10k
+#if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+ # source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+#fi
+
 # If you come from bash you might have to change your $PATH.
 
 # Path to your oh-my-zsh installation.
@@ -7,7 +16,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="garyblessington"
+ZSH_THEME="arrow"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -71,9 +80,9 @@ plugins=(git zsh-syntax-highlighting zsh-autosuggestions bgnotify colorize aws d
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 
-
 source $ZSH/oh-my-zsh.sh
-
+# IF ZSH IS SLOW WIT P10k typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
+source /home/daria/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
 # User configuration
 
 export MANPATH="/usr/local/man:$MANPATH"
@@ -91,17 +100,7 @@ fi
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-
 #ELENA
-
 # Cursor
 #echo -e -n "\x1b[\x30 q" # changes to blinking block
 #echo -e -n "\x1b[\x31 q" # changes to blinking block also
@@ -127,18 +126,14 @@ zle -N self-insert url-quote-magic
 # Find new executables in path
 zstyle ':completion:*' rehash true
 
-
 ###PATHS
-
-
 #export PATH="/home/daria/Applications/Appimage:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.local/share/flatpak/exports/bin:$PATH"
 
 ###ALIASES
 
-
-#alias weeb="wal -i ~/.wallpaper/Anime/landscapes"
+alias weeb="wal -i ~/.wallpaper/Anime/landscapes"
 alias p2="~/.color-toys/pipes2"
 alias nf="neofetch"
 alias brc="vim ~/.bashrc"
@@ -166,15 +161,15 @@ alias yt="rofi_mpvtube"
 alias ge="geany"
 alias tf="terraform"
 alias tf="sudo ./terraform "
-#alias wbl="wal -i ~/.wallpaper/WallpaperDump/"
-alias qq="googler"
+alias wbl="wal -i ~/.wallpaper/WallpaperDump/"
 
-#alias xfcdz="xfce4-terminal --drop-down"
-
+ # Python3 deps
+alias qq="socli "
+# Activate TheFuck
 #eval $(thefuck --alias)
-
-alias hh="howdoi"
-alias qqn="googler --news "
+#alias hh="howdoi"
+#alias qqn="googler --news "
+#alias xfcdz="xfce4-terminal --drop-down"
 
 alias pip-upgrade="pip3 freeze --user | cut -d'=' -f1 | xargs -n1 pip install -U"
 alias pip-upgrade-venv="pip3 freeze | cut -d'=' -f1 | xargs -n1 pip install -U"
@@ -183,8 +178,11 @@ alias ssss="~/.scripts/start.sh"
 alias xrandscalething="xrandr --dpi 76 --output HDMI-0"
 alias wbb="wb -b 2f2f2f"
 
-
+alias c="clear"
 #alias xc4="xfce4-terminal --drop-down"
 alias nf="screenfetch"
-alias powershell="pwsh"
+alias powershell="psh"
 #alias wbd="wal -i ~/.wallpaper/mechanical/"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+#[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
