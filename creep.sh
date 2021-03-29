@@ -1,9 +1,17 @@
-/// Creep Script
+ # Creep Script
+
+sudo apt install rdfind magicrescue foremost
 
 mkdir ~/creep
 cd ~/creep
-sudo apt install rdfind magicrescue foremost
 
-magicrescue -d ./ -r /usr/local/share/magicrescue/recipes/*
+# sudo fdisk and do /dev/sdx
 
-while true; do rdfind --delete ~/creep/. ; sleep 30;b
+foremost -i /dev/sdx -o ./ 
+
+ # magicrescue -d ./ -r /usr/local/share/magicrescue/recipes/*
+ 
+ # If you need to delete junk copies
+ # while true; do rdfind --delete ~/creep/. ; sleep 30; done
+ 
+ 
