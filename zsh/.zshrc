@@ -50,7 +50,7 @@ ZSH_THEME="arrow"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -82,7 +82,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 
 source $ZSH/oh-my-zsh.sh
 # IF ZSH IS SLOW WIT P10k typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
-source /home/daria/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
+# source /home/daria/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
 # User configuration
 
 export MANPATH="/usr/local/man:$MANPATH"
@@ -102,11 +102,11 @@ fi
 
 #ELENA
 # Cursor
-#echo -e -n "\x1b[\x30 q" # changes to blinking block
+echo -e -n "\x1b[\x30 q" # changes to blinking block
 #echo -e -n "\x1b[\x31 q" # changes to blinking block also
 #echo -e -n "\x1b[\x32 q" # changes to steady block
 #echo -e -n "\x1b[\x33 q" # changes to blinking underline   
-echo -e -n "\x1b[\x34 q" # changes to steady underline
+#echo -e -n "\x1b[\x34 q" # changes to steady underline
 #echo -e -n "\x1b[\x35 q" # changes to blinking bar
 #echo -e -n "\x1b[\x36 q" # changes to steady bar
 
@@ -184,5 +184,4 @@ alias nf="screenfetch"
 alias powershell="psh"
 #alias wbd="wal -i ~/.wallpaper/mechanical/"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-#[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+alias sfor='while true; do c; fortune -n 140 -s; sleep 15; done'
