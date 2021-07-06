@@ -10,13 +10,12 @@ antigen bundle command-not-found
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle MichaelAquilina/zsh-you-should-use
 antigen bundle jeffreytse/zsh-vi-mode
-antigen bundle chrissicool/zsh-256color 
+# antigen bundle chrissicool/zsh-256color 
 # Syntax highlighting bundle.
 # antigen bundle zsh-users/zsh-syntax-highlighting
 # Replaced with next plugin
 antigen bundle zdharma/fast-syntax-highlighting
 antigen bundle zsh-users/zsh-completions
-antigen bundle redxtech/zsh-not-vim
 
 # Load the theme.
 antigen theme kennethreitz 
@@ -29,7 +28,7 @@ antigen theme kennethreitz
 antigen apply
 
 # Hardcore mode for you-should-use
-export YSU_HARDCORE=0
+#export YSU_HARDCORE=0
 
 # Exchange text in buffer easily
 # Could be useful but don't feel like messing with rn
