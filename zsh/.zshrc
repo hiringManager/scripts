@@ -1,5 +1,5 @@
 # Modify this so that it is reusable
-source /home/daria/.zshPlugins/antigen.zsh
+source /home/daria/.zsh/antigen.zsh
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
