@@ -1,94 +1,58 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
+# Modify this so that it is reusable
+source /home/daria/.zshPlugins/antigen.zsh
 
-# Powerlevel10k
-#if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
- # source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-#fi
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundle git
+antigen bundle pip
+antigen bundle command-not-found
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle MichaelAquilina/zsh-you-should-use
+antigen bundle jeffreytse/zsh-vi-mode
+antigen bundle chrissicool/zsh-256color 
+# Syntax highlighting bundle.
+# antigen bundle zsh-users/zsh-syntax-highlighting
+# Replaced with next plugin
+antigen bundle zdharma/fast-syntax-highlighting
+antigen bundle zsh-users/zsh-completions
+antigen bundle redxtech/zsh-not-vim
 
-# If you come from bash you might have to change your $PATH.
+# Load the theme.
+antigen theme kennethreitz 
+# This one uses italics
+# kennethreitz### 
+# Others: 
+# xiong-chiamiov-pluss, rixius crunch arrow 
 
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+# Tell Antigen that you're done.
+antigen apply
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="arrow"
+# Hardcore mode for you-should-use
+export YSU_HARDCORE=0
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+# Exchange text in buffer easily
+# Could be useful but don't feel like messing with rn
+# https://github.com/okapia/zsh-viexchange
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+# FIX: Was this added in for npm, or is it the usual? Your git zsh is polluted, so no answer there.
+#source ~/.profile
+
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_MAGIC_FUNCTIONS="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
+ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions bgnotify colorize aws docker-compose docker colored-man-pages)
+HIST_STAMPS="mm/dd/yyyy"
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
-
-source $ZSH/oh-my-zsh.sh
-# IF ZSH IS SLOW WIT P10k typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
-# source /home/daria/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
-# User configuration
-
-export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -101,10 +65,11 @@ fi
 # export ARCHFLAGS="-arch x86_64"
 
 #ELENA
+
 # Cursor
-echo -e -n "\x1b[\x30 q" # changes to blinking block
+#echo -e -n "\x1b[\x30 q" # changes to blinking block
 #echo -e -n "\x1b[\x31 q" # changes to blinking block also
-#echo -e -n "\x1b[\x32 q" # changes to steady block
+echo -e -n "\x1b[\x32 q" # changes to steady block
 #echo -e -n "\x1b[\x33 q" # changes to blinking underline   
 #echo -e -n "\x1b[\x34 q" # changes to steady underline
 #echo -e -n "\x1b[\x35 q" # changes to blinking bar
@@ -112,7 +77,7 @@ echo -e -n "\x1b[\x30 q" # changes to blinking block
 
 export HISTSIZE=500000
 export SAVEHIST=500000
-# export MANPATH="/usr/local/man:$MANPATH"
+export MANPATH="/usr/local/man:$MANPATH"
 
 #This causes pasted URLs to be automatically escaped, without needing to disable globbing.
 autoload -Uz bracketed-paste-magic
@@ -120,68 +85,75 @@ zle -N bracketed-paste bracketed-paste-magic
 autoload -Uz url-quote-magic
 zle -N self-insert url-quote-magic
 
+# Additions
+
 # Import colorscheme from wal
 # (~/.local/bin/wal -qR &)
+#eval $(thefuck --alias) 
 
 # Find new executables in path
 zstyle ':completion:*' rehash true
 
+# FIX - alias this find /thisdir -type f -name '*.ogg' -exec mv -i {} /somedir  \;
+
 ###PATHS
-#export PATH="/home/daria/Applications/Appimage:$PATH"
+# Python, etc.
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/.local/share/flatpak/exports/bin:$PATH"
+export PATH="$HOME/.scripts:$PATH"
+# Flatpak
+# export PATH="$HOME/.local/share/flatpak/exports/bin:$PATH"
 
-###ALIASES
-
-alias weeb="wal -i ~/.wallpaper/Anime/landscapes"
-alias p2="~/.color-toys/pipes2"
-alias nf="neofetch"
+#ALIASES
 alias brc="vim ~/.bashrc"
 alias zrc="vim ~/.zshrc"
 alias frc="vim ~/.fishrc"
+alias vrc='vim ~/.vimrc'
+alias p2="~/.color-toys/pipes2"
+# FIX Grab your bunnyfetch from laptop nvme install
+alias nf="neofetch"
 alias sai="sudo apt install "
 alias sau="sudo apt update && sudo apt upgrade -y"
 alias saaa="sudo apt autoremove && sudo apt clean && sudo apt autoclean && sudo apt update && sudo apt upgrade"
 alias qa="python3 ~/.local/bin/quail"
 alias ic="vim ~/.config/i3/config"
 alias ttt="cd ~/Applications/Bin/ && ./terraform"
-alias ia="vim ~/.config/awesome/rc.lua"
-alias zac="geany ~/.config/awesome/rc.lua"
 alias orc="emacs ~/.config/openbox/rc.xml"
-#alias frc="vim ~/.fluxbox/keys"
-#alias arc="emacs ~/.config/awesome/rc.lua"
+alias arc="emacs ~/.config/awesome/rc.lua"
 alias yt="rofi_mpvtube"
-
-
-
-#QUICK ALIASES
-
-#alias wb="wal -i ~/.wallpaper/Anime/landscapes"
-
 alias ge="geany"
 alias tf="terraform"
 alias tf="sudo ./terraform "
-alias wbl="wal -i ~/.wallpaper/WallpaperDump/"
-
- # Python3 deps
-alias qq="socli "
-# Activate TheFuck
-#eval $(thefuck --alias)
-#alias hh="howdoi"
-#alias qqn="googler --news "
-#alias xfcdz="xfce4-terminal --drop-down"
-
-alias pip-upgrade="pip3 freeze --user | cut -d'=' -f1 | xargs -n1 pip install -U"
-alias pip-upgrade-venv="pip3 freeze | cut -d'=' -f1 | xargs -n1 pip install -U"
-
+#alias qq="socli "
+alias qq="howdoi"
+alias qqn="googler --news "
+alias pip-upgrade="pip3 freeze --user | cut -d'=' -f1 | xargs -n1 pip3 install -U"
+alias pip-upgrade-venv="pip3 freeze | cut -d'=' -f1 | xargs -n1 pip3 install -U"
 alias ssss="~/.scripts/start.sh"
-alias xrandscalething="xrandr --dpi 76 --output HDMI-0"
-alias wbb="wb -b 2f2f2f"
-
 alias c="clear"
-#alias xc4="xfce4-terminal --drop-down"
-alias nf="screenfetch"
 alias powershell="psh"
-#alias wbd="wal -i ~/.wallpaper/mechanical/"
+# Node and Node Accessories 
+# Node Version Manager
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+#
+alias nr='npm run'
 
-alias sfor='while true; do c; fortune -n 140 -s; sleep 15; done'
+# Is it bad to script something here?
+alias fixhistory='mv ~/.zsh_history ~/.zsh_history_bad
+strings -eS ~/.zsh_history_bad > ~/.zsh_history
+fc -R ~/.zsh_history
+rm ~/.zsh_history_bad'
+
+alias mount='mount |column -t'
+alias nmapz='nmap -sC -sV -oN delNmapOut -vv'
+alias sfor='fortune -n 140'
+alias sforo='while true ; do fortune -o -n 140; sleep 40; clear; done'  
+alias sfors='while true; do fortune -n 140; sleep 25; clear; done'
+
+# Remember
+ # when activating python venv use 'source ./activate'
+# alias rem='echo 
+if [ -e /home/daria/.nix-profile/etc/profile.d/nix.sh ]; then . /home/daria/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+# . /home/daria/.nix-profile/etc/profile.d/nix.sh
+#source $HOME/.nix-profile/etc/profile.d/nix.sh
