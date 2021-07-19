@@ -1,5 +1,5 @@
 # Modify this so that it is reusable
-source /home/daria/.zsh/antigen.zsh
+source ~/.zsh/antigen.zsh
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
@@ -156,3 +156,5 @@ if [ -e /home/daria/.nix-profile/etc/profile.d/nix.sh ]; then . /home/daria/.nix
 
 # . /home/daria/.nix-profile/etc/profile.d/nix.sh
 #source $HOME/.nix-profile/etc/profile.d/nix.sh
+
+fortune -n -s
