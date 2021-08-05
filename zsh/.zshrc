@@ -4,15 +4,15 @@ source ~/.zsh/antigen.zsh
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle git
-antigen bundle pip
+#antigen bundle git
+#antigen bundle pip
 antigen bundle command-not-found
 antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle MichaelAquilina/zsh-you-should-use
+#antigen bundle MichaelAquilina/zsh-you-should-use
 antigen bundle jeffreytse/zsh-vi-mode
-# antigen bundle chrissicool/zsh-256color 
+#antigen bundle chrissicool/zsh-256color 
 # Syntax highlighting bundle.
-# antigen bundle zsh-users/zsh-syntax-highlighting
+#antigen bundle zsh-users/zsh-syntax-highlighting
 # Replaced with next plugin
 antigen bundle zdharma/fast-syntax-highlighting
 antigen bundle zsh-users/zsh-completions
@@ -40,7 +40,7 @@ antigen apply
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
-HYPHEN_INSENSITIVE="true"
+#HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 DISABLE_MAGIC_FUNCTIONS="true"
@@ -68,7 +68,7 @@ fi
 # Cursor
 #echo -e -n "\x1b[\x30 q" # changes to blinking block
 #echo -e -n "\x1b[\x31 q" # changes to blinking block also
-echo -e -n "\x1b[\x32 q" # changes to steady block
+#echo -e -n "\x1b[\x32 q" # changes to steady block
 #echo -e -n "\x1b[\x33 q" # changes to blinking underline   
 #echo -e -n "\x1b[\x34 q" # changes to steady underline
 #echo -e -n "\x1b[\x35 q" # changes to blinking bar
@@ -87,7 +87,7 @@ zle -N self-insert url-quote-magic
 # Additions
 
 # Import colorscheme from wal
-# (~/.local/bin/wal -qR &)
+(~/.local/bin/wal -qR &)
 #eval $(thefuck --alias) 
 
 # Find new executables in path
@@ -122,27 +122,26 @@ alias yt="rofi_mpvtube"
 alias ge="geany"
 alias tf="terraform"
 alias tf="sudo ./terraform "
-#alias qq="socli "
 alias qq="howdoi"
 alias qqn="googler --news "
-alias pip-upgrade="pip3 freeze --user | cut -d'=' -f1 | xargs -n1 pip3 install -U"
+#alias pip-upgrade="pip3 freeze --user | cut -d'=' -f1 | xargs -n1 pip3 install -U" #Is this safe to use use in Debian? FIX
 alias pip-upgrade-venv="pip3 freeze | cut -d'=' -f1 | xargs -n1 pip3 install -U"
 alias ssss="~/.scripts/start.sh"
-alias c="clear"
+alias c="clear; fortune -s -o"
 alias powershell="psh"
 # Node and Node Accessories 
 # Node Version Manager
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+#export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 #
-alias nr='npm run'
-
+#
 # Is it bad to script something here?
-alias fixhistory='mv ~/.zsh_history ~/.zsh_history_bad
-strings -eS ~/.zsh_history_bad > ~/.zsh_history
-fc -R ~/.zsh_history
-rm ~/.zsh_history_bad'
-
+#alias fixhistory='mv ~/.zsh_history ~/.zsh_history_bad
+#strings -eS ~/.zsh_history_bad > ~/.zsh_history
+#fc -R ~/.zsh_history
+#rm ~/.zsh_history_bad'
+#
+alias winPicBackup='rsync /mnt/c/Users/zofia/AppData/Local/Packages/MicrosoftWindows.Client.CBS_cw5n1h2txyewy/TempState/Screenclip/*.png /mnt/c/Users/zofia/Pictures/Captures/'
 alias mount='mount |column -t'
 alias nmapz='nmap -sC -sV -oN delNmapOut -vv'
 alias sfor='fortune -n 140'
@@ -158,3 +157,24 @@ if [ -e /home/daria/.nix-profile/etc/profile.d/nix.sh ]; then . /home/daria/.nix
 #source $HOME/.nix-profile/etc/profile.d/nix.sh
 
 fortune -n -s
+if [ -e /home/zofia/.nix-profile/etc/profile.d/nix.sh ]; then . /home/zofia/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+alias kwsl='wsl.exe --shutdown'
+
+alias wgt='winget.exe '
+
+alias wgti='winget.exe install '
+alias wgts='winget.exe search'
+
+# $ find . -type d -empty -print
+# clear dirs that are empty append -delete
+#
+#
+#
+#
+alias rmr='rm -r'
+
+
+export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
+
+
