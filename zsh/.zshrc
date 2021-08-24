@@ -4,15 +4,15 @@ source ~/.zsh/antigen.zsh
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
-#antigen bundle git
-#antigen bundle pip
+antigen bundle git
+antigen bundle pip
 antigen bundle command-not-found
 antigen bundle zsh-users/zsh-autosuggestions
-#antigen bundle MichaelAquilina/zsh-you-should-use
-antigen bundle jeffreytse/zsh-vi-mode
-#antigen bundle chrissicool/zsh-256color 
+antigen bundle MichaelAquilina/zsh-you-should-use
+ # antigen bundle jeffreytse/zsh-vi-mode
+ # antigen bundle chrissicool/zsh-256color 
 # Syntax highlighting bundle.
-#antigen bundle zsh-users/zsh-syntax-highlighting
+ # antigen bundle zsh-users/zsh-syntax-highlighting
 # Replaced with next plugin
 antigen bundle zdharma/fast-syntax-highlighting
 antigen bundle zsh-users/zsh-completions
@@ -27,16 +27,14 @@ antigen theme kennethreitz
 # Tell Antigen that you're done.
 antigen apply
 
+source ~/.profile
+
 # Hardcore mode for you-should-use
 #export YSU_HARDCORE=0
 
 # Exchange text in buffer easily
 # Could be useful but don't feel like messing with rn
 # https://github.com/okapia/zsh-viexchange
-
-# FIX: Was this added in for npm, or is it the usual? Your git zsh is polluted, so no answer there.
-#source ~/.profile
-
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
@@ -87,7 +85,7 @@ zle -N self-insert url-quote-magic
 # Additions
 
 # Import colorscheme from wal
-(~/.local/bin/wal -qR &)
+#(~/.local/bin/wal -qR &)
 #eval $(thefuck --alias) 
 
 # Find new executables in path
@@ -111,22 +109,18 @@ alias p2="~/.color-toys/pipes2"
 # FIX Grab your bunnyfetch from laptop nvme install
 alias nf="neofetch"
 alias sai="sudo apt install "
-alias sau="sudo apt update && sudo apt upgrade -y"
+alias sau="sudo apt update && sudo apt upgrade"
 alias saaa="sudo apt autoremove && sudo apt clean && sudo apt autoclean && sudo apt update && sudo apt upgrade"
 alias qa="python3 ~/.local/bin/quail"
-alias ic="vim ~/.config/i3/config"
-alias ttt="cd ~/Applications/Bin/ && ./terraform"
-alias orc="emacs ~/.config/openbox/rc.xml"
-alias arc="emacs ~/.config/awesome/rc.lua"
+alias i3c="vim ~/.config/i3/config"
+alias orc="vim ~/.config/openbox/rc.xml"
+alias arc="vim ~/.config/awesome/rc.lua"
 alias yt="rofi_mpvtube"
-alias ge="geany"
 alias tf="terraform"
-alias tf="sudo ./terraform "
 alias qq="howdoi"
 alias qqn="googler --news "
 #alias pip-upgrade="pip3 freeze --user | cut -d'=' -f1 | xargs -n1 pip3 install -U" #Is this safe to use use in Debian? FIX
-alias pip-upgrade-venv="pip3 freeze | cut -d'=' -f1 | xargs -n1 pip3 install -U"
-alias ssss="~/.scripts/start.sh"
+#alias pip-upgrade-venv="pip3 freeze | cut -d'=' -f1 | xargs -n1 pip3 install -U"
 alias c="clear; fortune -s -o"
 alias powershell="psh"
 # Node and Node Accessories 
@@ -148,33 +142,20 @@ alias sfor='fortune -n 140'
 alias sforo='while true ; do fortune -o -n 140; sleep 40; clear; done'  
 alias sfors='while true; do fortune -n 140; sleep 25; clear; done'
 
-# Remember
- # when activating python venv use 'source ./activate'
-# alias rem='echo 
-if [ -e /home/daria/.nix-profile/etc/profile.d/nix.sh ]; then . /home/daria/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-
 # . /home/daria/.nix-profile/etc/profile.d/nix.sh
 #source $HOME/.nix-profile/etc/profile.d/nix.sh
 
 fortune -n -s
-if [ -e /home/zofia/.nix-profile/etc/profile.d/nix.sh ]; then . /home/zofia/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
+ # Windows WSL Aliases
 alias kwsl='wsl.exe --shutdown'
-
 alias wgt='winget.exe '
-
 alias wgti='winget.exe install '
 alias wgts='winget.exe search'
 
 # $ find . -type d -empty -print
 # clear dirs that are empty append -delete
-#
-#
-#
-#
-alias rmr='rm -r'
-
+ # alias rmr='rm -r' # Really dude?
 
 export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
-
-
+if [ -e /home/zofia/.nix-profile/etc/profile.d/nix.sh ]; then . /home/zofia/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
