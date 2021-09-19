@@ -155,7 +155,4 @@ alias wgts='winget.exe search'
 
 # $ find . -type d -empty -print
 # clear dirs that are empty append -delete
- # alias rmr='rm -r' # Really dude?
-
-export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
-if [ -e /home/zofia/.nix-profile/etc/profile.d/nix.sh ]; then . /home/zofia/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+# alias rmr='rm -r' # Really dude?
