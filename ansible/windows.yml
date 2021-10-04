@@ -1,0 +1,53 @@
+# This is a playbook to setup my windows installation
+
+name: Windows Setup
+hosts: localhost, all
+tasks: 
+  - name: Install the windows update
+    win_update:
+      all: yes
+  - name: install wsl2
+    win_wsl:
+      version: 2.0
+      state: present
+  - name: install git
+    win_package:
+      name: git
+      state: present
+  - name: install chocolatey
+    win_chocolatey:
+      name: chocolatey
+      state: present
+  - name: install powershell
+    win_package:
+      name: powershell
+      state: present
+  - name: Install winget
+    win_winget:
+      name: winget
+      state: present
+  - name: Install vscode
+    win_package:
+      name: vscode
+      state: present
+  - name: install chocolatey packages
+    pkgs:
+      - git
+      - powershell
+      - chocolatey
+      - wsl2
+      - win_update
+      - docker
+      - vmwwareworkstation
+      - neovim
+  - name: install winget packages
+    winget:
+      - winget
+      - vscode
+      - docker
+      - vmwwareworkstation
+      - vlc
+      - neovim
+      - obs
+      - musescore
+      - nomacs

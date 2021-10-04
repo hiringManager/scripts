@@ -1,0 +1,55 @@
+---
+# Install openvpn and a few tools to manage the container
+---
+- hosts: localhost
+  tasks:
+  - name: Full upgrade
+    apt:
+      upgrade: Full
+      update_cache: yes
+  - name: Install a list of packages
+    apt:
+      pkg:
+      - zsh
+      - git
+      - vim
+      - ranger
+      - openvpn
+      - python3-pip
+      update_cache: yes
+  - name: Create new user
+    user:
+      name: hm
+      comment: hiringManager
+      home: /home/hm
+      shell: /bin/zsh
+      state: present
+  - name: add user to sudoers
+    user:
+      name: hm
+      groups: sudo
+      state: present
+  - name: Create a directory
+    file:
+      path: /home/hm/scripts
+      state: directory
+  - name: Clone a git repository
+    git:
+      repo: 'https://github.com/hiringmanager/scripts'
+      dest: /tmp/scripts
+      run_as: root
+  - name: run /home/hm/scripts/install.sh
+    chmod:
+      path: /home/hm/scripts/install.sh
+      mode: +x
+    shell: /home/hm/scripts/install.sh
+  - name: Connect to openvpn
+    shell: openvpn --config /etc/openvpn/client.conf
+    run_as: sudo
+  - name: configure ssh
+    openssh_config:
+      options:
+        - "PasswordAuthentication yes"
+        - "PermitRootLogin no"
+        - "PermitEmptyPasswords no"
+        - "PubkeyAuthentication yes"
