@@ -3,7 +3,7 @@
 ---
 - hosts: localhost
   tasks:
-  - name: Full upgrade
+  - name: apt full-upgrade
     apt:
       upgrade: Full
       update_cache: yes
@@ -24,7 +24,7 @@
       home: /home/hm
       shell: /bin/zsh
       state: present
-  - name: add user to sudoers
+  - name: add hm to sudoers
     user:
       name: hm
       groups: sudo
@@ -43,13 +43,14 @@
       path: /home/hm/scripts/install.sh
       mode: +x
     shell: /home/hm/scripts/install.sh
-  - name: Connect to openvpn
-    shell: openvpn --config /etc/openvpn/client.conf
-    run_as: sudo
   - name: configure ssh
     openssh_config:
       options:
         - "PasswordAuthentication yes"
-        - "PermitRootLogin no"
+        - "PermitRootLogin no" # Remember to remove this, as it is a req for ovpn
         - "PermitEmptyPasswords no"
         - "PubkeyAuthentication yes"
+  - name: Connect to openvpn
+    shell: echo '0' #openvpn --config /etc/openvpn/client.conf 
+    # I do not think there is going to be an easy solution for this, unless there is a persistent key
+    run_as: sudo
