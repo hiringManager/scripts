@@ -31,14 +31,14 @@
       state: present
   - name: Create a directory
     file:
-      path: /home/hm/scripts
+      path: /home/hm/test
       state: directory
   - name: Clone a git repository
     git:
       repo: 'https://github.com/hiringmanager/scripts'
-      dest: /tmp/scripts
-      run_as: root
-  - name: run /home/hm/scripts/install.sh
+      dest: /home/hm/scripts
+      run_as: hm
+  - name: zshrc
     chmod:
       path: /home/hm/scripts/install.sh
       mode: +x
